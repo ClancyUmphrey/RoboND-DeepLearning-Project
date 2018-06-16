@@ -25,7 +25,7 @@ The network and model training code for this project is contained within the Jup
 |----------------------------------------------------------------------------------------|
 | **Figure 1.  Diagram of the fully convolutional neural network.**|
 
-The encoder extracts features from the image, and the decoder upscales and predicts the classification of each individual pixel.  Each encoder block consists of a 3x3 separable convolution with a stride of 2 (which halves the width and height each block).  Separable convolutions can reduce the number of parameters by more than 70% compared to regular convolutions, and consequently have the added benefit of reducing overfitting.  Each decoder block consists of:
+The encoder extracts features from the image, and the decoder upscales and predicts the classification of each individual pixel.  Each encoder block consists of a 3x3 separable convolution with a stride of 2 (which halves the width and height of each block).  Separable convolutions can reduce the number of parameters by more than 70% compared to regular convolutions, and consequently have the added benefit of reducing overfitting.  Each decoder block consists of:
 1. Factor-of-two bilinear upsampling (which speeds up performance compared to a transposed convolution).
 2. Concatenation of the upsampled input and the skip connection input.
 3. A single 3x3 separable convolution of the concatenated input.  An additional separable convolution layer was tested with this FCN, but did not significantly improve accuracy gains compared to the additional computational cost.
